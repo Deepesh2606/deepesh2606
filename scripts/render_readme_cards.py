@@ -570,7 +570,7 @@ def render_project_card(
 
 
 def render_contact_banner() -> str:
-    w, h = 840, 130
+    w, h = 840, 120
     css = """
     @keyframes bannerFade {
       from { opacity: 0; transform: translateY(12px); }
@@ -587,32 +587,26 @@ def render_contact_banner() -> str:
     <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="14" fill="{SURFACE}" stroke="{BORDER}" />
 
     <!-- Left side: pitch -->
-    <text x="32" y="34" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10.5" font-weight="700" letter-spacing="1">
+    <text x="32" y="32" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10.5" font-weight="700" letter-spacing="1">
       GOT A STORE OR IDEA IN MIND?
     </text>
-    <text x="32" y="66" fill="{INK}" font-family="{FONT_DISPLAY}" font-size="24" font-weight="700">
+    <text x="32" y="62" fill="{INK}" font-family="{FONT_DISPLAY}" font-size="24" font-weight="700">
       Let's build yours.
     </text>
-    <text x="32" y="94" fill="{MUTED}" font-family="{FONT_SANS}" font-size="13">
+    <text x="32" y="88" fill="{MUTED}" font-family="{FONT_SANS}" font-size="13">
       From first sketch to a store taking orders — one person, start to finish.
     </text>
 
     <!-- Right side: Contact action badges -->
-    <!-- WhatsApp -->
-    <rect x="520" y="22" width="288" height="28" rx="7" fill="{BG}" stroke="{BORDER}" />
-    <text x="532" y="40" fill="{INK}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600">
-      💬 WhatsApp: +91 88474 43583 ↗
-    </text>
-
-    <!-- Email -->
-    <rect x="520" y="55" width="288" height="28" rx="7" fill="{BG}" stroke="{BORDER}" />
-    <text x="532" y="73" fill="{INK}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600">
+    <!-- Email (Primary CTA) -->
+    <rect x="520" y="24" width="288" height="34" rx="8" fill="{COBALT}" />
+    <text x="664" y="46" text-anchor="middle" fill="#FFFFFF" font-family="{FONT_MONO}" font-size="11" font-weight="600">
       ✉️ deepeshsingh2606@gmail.com ↗
     </text>
 
     <!-- Portfolio -->
-    <rect x="520" y="88" width="288" height="28" rx="7" fill="{COBALT_LIGHT}" stroke="{COBALT}" stroke-opacity="0.3" />
-    <text x="532" y="106" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10.5" font-weight="700">
+    <rect x="520" y="66" width="288" height="34" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
+    <text x="664" y="88" text-anchor="middle" fill="{COBALT}" font-family="{FONT_MONO}" font-size="11" font-weight="700">
       🌐 portfolio-deepesh.lovable.app ↗
     </text>
   </g>
@@ -626,12 +620,11 @@ def main() -> None:
     files = {
         "hero.svg": render_hero(data),
         "graph.svg": render_graph(data),
-        "activity.svg": render_activity(data),
         "tile-build.svg": render_tile(
             kicker="01 · SHIPPED",
             title="Projects Shipped",
             subtitle="E-commerce stores & interactive web apps",
-            metric=4,
+            metric=5,
             suffix="TOTAL PROJECTS",
             accent_bg=True,
             delay=1.75,
@@ -640,7 +633,7 @@ def main() -> None:
             kicker="02 · DEPLOYED",
             title="Live in Production",
             subtitle="Taking orders & serving active users",
-            metric=3,
+            metric=4,
             suffix="LIVE RIGHT NOW",
             accent_bg=False,
             delay=1.90,
@@ -687,8 +680,19 @@ def main() -> None:
             is_live=True,
             delay=2.50,
         ),
-        "project-hapylo.svg": render_project_card(
+        "project-constellation.svg": render_project_card(
             number="04",
+            name="CONSTELLATION LYRICS",
+            tagline="Synchronized music & interactive lyrics.",
+            description="Audio-synced visual lyric canvas & music player.",
+            domain="constellationlyrics.vercel.app",
+            status_label="LIVE WEB APP",
+            stack=["Web Audio", "Audio Sync", "Frontend"],
+            is_live=True,
+            delay=2.65,
+        ),
+        "project-hapylo.svg": render_project_card(
+            number="05",
             name="HAPYLO",
             tagline="Happy home. Better living.",
             description="Launch-ready store for bamboo-less dhoop sticks.",
@@ -696,7 +700,7 @@ def main() -> None:
             status_label="IN PROGRESS",
             stack=["Storefront", "Pre-Launch", "Gift Kits"],
             is_live=False,
-            delay=2.65,
+            delay=2.80,
         ),
         "contact.svg": render_contact_banner(),
     }

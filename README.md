@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://portfolio-deepesh.lovable.app/">
-    <img src="./cards/hero.svg" width="100%" alt="Deepesh Singh — Web Developer · Portfolio Vol. 01" />
+    <img src="./cards/hero.svg" width="100%" alt="Deepesh — Web Developer · Portfolio Vol. 01" />
   </a>
 </p>
 
@@ -17,6 +17,10 @@
 
 <p align="center">
   <a href="https://useflowstate.vercel.app/"><img src="./cards/project-flowstate.svg" width="49%" alt="FLOWSTATE · Live Web App" /></a>
+  <a href="https://constellationlyrics.vercel.app/"><img src="./cards/project-constellation.svg" width="49%" alt="CONSTELLATION LYRICS · Live Web App" /></a>
+</p>
+
+<p align="center">
   <a href="https://hapylo.com/"><img src="./cards/project-hapylo.svg" width="49%" alt="HAPYLO · In Progress" /></a>
 </p>
 
@@ -25,11 +29,7 @@
 </p>
 
 <p align="center">
-  <img src="./cards/activity.svg" width="100%" alt="Monthly Contribution Activity" />
-</p>
-
-<p align="center">
-  <a href="https://wa.me/918847443583?text=Hi%20Deepesh%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project.">
-    <img src="./cards/contact.svg" width="100%" alt="Let's build yours · WhatsApp · Email · Portfolio" />
+  <a href="mailto:deepeshsingh2606@gmail.com?subject=New%20Project">
+    <img src="./cards/contact.svg" width="100%" alt="Let's build yours · Email · Portfolio" />
   </a>
 </p>

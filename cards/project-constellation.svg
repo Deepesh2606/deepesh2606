@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 180" width="412" height="180">
+  <style>
+
+    @keyframes cardRise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulseLive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.35; transform: scale(1.4); }
+    }
+    .proj-wrap {
+      opacity: 0;
+      animation: cardRise 0.55s cubic-bezier(.2,.8,.2,1) 2.65s forwards;
+    }
+    .live-dot {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulseLive 2s ease-in-out infinite;
+    }
+    
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    </style>
+  <g class="proj-wrap">
+    <rect x="0.5" y="0.5" width="411" height="179" rx="14" fill="#F8F8F6" stroke="#DFDFD8" />
+
+    <!-- Status Badge -->
+    <rect x="22" y="18" width="114.4" height="22" rx="6" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8" />
+    <circle cx="32" cy="29" r="3.5" fill="#10B981" class="live-dot" />
+    <text x="41" y="33" fill="#15803D" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="0.5">
+      LIVE WEB APP
+    </text>
+
+    <!-- Domain Link Pill -->
+    <text x="390" y="33" text-anchor="end" fill="#1D4ED8" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600">
+      constellationlyrics.vercel.app ↗
+    </text>
+
+    <!-- Number + Project Title -->
+    <text x="22" y="70" fill="#121316" font-family="'DuoDisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700">
+      <tspan fill="#5C606E" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" font-weight="400">04 </tspan>CONSTELLATION LYRICS
+    </text>
+
+    <!-- Tagline -->
+    <text x="22" y="92" fill="#1D4ED8" font-family="'DuoSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600">
+      Synchronized music &amp; interactive lyrics.
+    </text>
+
+    <!-- Short Description -->
+    <text x="22" y="114" fill="#5C606E" font-family="'DuoSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12">
+      Audio-synced visual lyric canvas &amp; music player.
+    </text>
+
+    <!-- Tags Row -->
+    <rect x="22" y="136" width="77.2" height="24" rx="6" fill="#FFFFFF" stroke="#DFDFD8" /><text x="60.6" y="152" text-anchor="middle" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10">Web Audio</text><rect x="107.19999999999999" y="136" width="84.0" height="24" rx="6" fill="#FFFFFF" stroke="#DFDFD8" /><text x="149.2" y="152" text-anchor="middle" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10">Audio Sync</text><rect x="199.2" y="136" width="70.4" height="24" rx="6" fill="#FFFFFF" stroke="#DFDFD8" /><text x="234.4" y="152" text-anchor="middle" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10">Frontend</text>
+  </g>
+</svg>
