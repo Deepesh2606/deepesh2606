@@ -21,6 +21,7 @@
 </p>
 
 <p align="center">
+  <a href="https://portfolio-deepesh.lovable.app/"><img src="./cards/project-portfolio.svg" width="49%" alt="PORTFOLIO — VOL. 01 · Live Site" /></a>
   <a href="https://hapylo.com/"><img src="./cards/project-hapylo.svg" width="49%" alt="HAPYLO · In Progress" /></a>
 </p>
 
