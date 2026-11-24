@@ -1,0 +1,43 @@
+name: Refresh Animated README Cards
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install fontTools for pyftsubset
+        run: pip install fonttools
+
+      - name: Fetch latest GitHub contributions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: Deepesh2606
+        run: python scripts/fetch_contributions.py
+
+      - name: Render README SVG cards
+        run: python scripts/render_readme_cards.py
+
+      - name: Commit updated cards and data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/contributions.json cards/*.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh daily README SVG cards"
+            git push
+          fi

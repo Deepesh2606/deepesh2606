@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 250" width="840" height="250">
+  <defs>
+    <linearGradient id="nameShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#121316" />
+      <stop offset="42%" stop-color="#121316" />
+      <stop offset="50%" stop-color="#1D4ED8" />
+      <stop offset="58%" stop-color="#121316" />
+      <stop offset="100%" stop-color="#121316" />
+      <animateTransform attributeName="gradientTransform" type="translate" from="-1 0" to="2 0" dur="3.6s" repeatCount="indefinite" />
+    </linearGradient>
+  </defs>
+  <style>
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes typeRow {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.35; transform: scale(1.45); }
+    }
+    .l1 { opacity: 0; animation: riseIn 0.55s cubic-bezier(.2,.8,.2,1) 0.05s forwards; }
+    .l2 { opacity: 0; animation: riseIn 0.55s cubic-bezier(.2,.8,.2,1) 0.18s forwards; }
+    .l3 { opacity: 0; animation: riseIn 0.55s cubic-bezier(.2,.8,.2,1) 0.30s forwards; }
+    .l4 { opacity: 0; animation: riseIn 0.55s cubic-bezier(.2,.8,.2,1) 0.42s forwards; }
+    .dot-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulseDot 2.2s ease-in-out infinite;
+    }
+    
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    </style>
+  <rect x="0.5" y="0.5" width="839" height="249" rx="14" fill="#F8F8F6" stroke="#DFDFD8" />
+
+  <!-- Top kicker -->
+  <g class="l1">
+    <circle cx="38" cy="40" r="4.5" fill="#1D4ED8" class="dot-pulse" />
+    <text x="52" y="44" fill="#5C606E" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" letter-spacing="1.2">
+      GITHUB.COM/DEEPESH2606 · OPEN TO COLLABORATE
+    </text>
+  </g>
+
+  <!-- Name with SMIL cobalt shine -->
+  <g class="l2">
+    <text x="34" y="106" fill="url(#nameShine)" font-family="'DuoDisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-1.2">
+      Deepesh Singh
+    </text>
+  </g>
+
+  <!-- One-line bio -->
+  <g class="l3">
+    <text x="36" y="146" fill="#121316" font-family="'DuoSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18.5" font-weight="500">
+      Web Developer crafting crisp interfaces, focus tools &amp; interactive audio apps.
+    </text>
+  </g>
+
+  <!-- Duo tag pills -->
+  <g class="l4">
+    <rect x="36" y="176" width="128" height="32" rx="8" fill="#1D4ED8" />
+    <text x="100" y="196" text-anchor="middle" fill="#FFFFFF" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600">
+      WEB DEVELOPER
+    </text>
+
+    <rect x="174" y="176" width="136" height="32" rx="8" fill="#FFFFFF" stroke="#DFDFD8" />
+    <text x="242" y="196" text-anchor="middle" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5">
+      FULL-STACK UI
+    </text>
+
+    <rect x="320" y="176" width="170" height="32" rx="8" fill="#FFFFFF" stroke="#DFDFD8" />
+    <text x="405" y="196" text-anchor="middle" fill="#5C606E" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5">
+      114 COMMITS / YR
+    </text>
+  </g>
+
+  <!-- Right ASCII terminal frame -->
+  <rect x="596" y="18" width="224" height="214" rx="10" fill="#FFFFFF" stroke="#DFDFD8" />
+  <text x="615" y="31.0" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.080s forwards;">        .::----::.        </text><text x="615" y="39.6" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.102s forwards;">      .-==========-.      </text><text x="615" y="48.2" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.124s forwards;">     :==============:     </text><text x="615" y="56.8" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.146s forwards;">    :================:    </text><text x="615" y="65.4" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.168s forwards;">    :==--::::::::--==:    </text><text x="615" y="74.0" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.190s forwards;">    :=:  ..    ..  :=:    </text><text x="615" y="82.6" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.212s forwards;">    :=: [##]  [##] :=:    </text><text x="615" y="91.2" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.234s forwards;">    :=:  ..    ..  :=:    </text><text x="615" y="99.8" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.256s forwards;">    :=:     ::     :=:    </text><text x="615" y="108.4" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.278s forwards;">    :==:   -==-   :==:    </text><text x="615" y="117.0" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.300s forwards;">     :==:  &#x27;--&#x27;  :==:     </text><text x="615" y="125.6" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.322s forwards;">      :===------===:      </text><text x="615" y="134.2" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.344s forwards;">       &#x27;:========:&#x27;       </text><text x="615" y="142.8" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.366s forwards;">     ..--::::::::--..     </text><text x="615" y="151.4" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.388s forwards;">   .:================:.   </text><text x="615" y="160.0" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.410s forwards;">  :====================:  </text><text x="615" y="168.6" fill="#1D4ED8" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.432s forwards;"> :====:  &lt;DEEPESH/&gt; :===: </text><text x="615" y="177.2" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.454s forwards;"> :====:  ---------- :===: </text><text x="615" y="185.8" fill="#1D4ED8" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.476s forwards;"> :====:   WEB·DEV   :===: </text><text x="615" y="194.4" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.498s forwards;"> :======================: </text><text x="615" y="203.0" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.520s forwards;"> :======================: </text><text x="615" y="211.6" fill="#121316" font-family="'DuoMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.5" xml:space="preserve" class="row-line" style="opacity:0;animation:typeRow 0.12s linear 0.542s forwards;">  &#x27;====================&#x27;  </text>
+</svg>
