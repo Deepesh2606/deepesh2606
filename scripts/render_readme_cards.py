@@ -229,18 +229,18 @@ def render_hero(data: dict) -> str:
 
   <!-- Duo tag pills -->
   <g class="l4">
-    <rect x="36" y="176" width="180" height="32" rx="8" fill="{COBALT}" />
-    <text x="126" y="196" text-anchor="middle" fill="#FFFFFF" font-family="{FONT_MONO}" font-size="11" font-weight="600">
+    <rect x="36" y="176" width="132" height="32" rx="8" fill="{COBALT}" />
+    <text x="102" y="196" text-anchor="middle" fill="#FFFFFF" font-family="{FONT_MONO}" font-size="11" font-weight="700">
+      PORTFOLIO ↗
+    </text>
+
+    <rect x="176" y="176" width="184" height="32" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
+    <text x="268" y="196" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="11" font-weight="500">
       E-COMMERCE &amp; WEB APPS
     </text>
 
-    <rect x="224" y="176" width="188" height="32" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
-    <text x="318" y="196" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="11">
-      I BUILD STORES THAT SELL
-    </text>
-
-    <rect x="420" y="176" width="168" height="32" rx="8" fill="{COBALT_LIGHT}" stroke="{COBALT}" stroke-opacity="0.3" />
-    <text x="504" y="196" text-anchor="middle" fill="{COBALT}" font-family="{FONT_MONO}" font-size="11" font-weight="600">
+    <rect x="368" y="176" width="168" height="32" rx="8" fill="{COBALT_LIGHT}" stroke="{COBALT}" stroke-opacity="0.3" />
+    <text x="452" y="196" text-anchor="middle" fill="{COBALT}" font-family="{FONT_MONO}" font-size="11" font-weight="600">
       AVAILABLE FOR WORK
     </text>
   </g>
@@ -619,7 +619,6 @@ def main() -> None:
 
     files = {
         "hero.svg": render_hero(data),
-        "graph.svg": render_graph(data),
         "tile-build.svg": render_tile(
             kicker="01 · SHIPPED",
             title="Projects Shipped",
@@ -639,11 +638,11 @@ def main() -> None:
             delay=1.90,
         ),
         "tile-ship.svg": render_tile(
-            kicker="03 · VELOCITY",
-            title="Yearly Cadence",
-            subtitle="Open-source commits & daily engineering",
-            metric=data["total"],
-            suffix="TOTAL CONTRIBUTIONS",
+            kicker="03 · PIPELINE",
+            title="In Active Build",
+            subtitle="Launch-ready storefronts & tools",
+            metric=1,
+            suffix="IN PROGRESS",
             accent_bg=False,
             delay=2.05,
         ),
@@ -693,7 +692,7 @@ def main() -> None:
         ),
         "project-portfolio.svg": render_project_card(
             number="05",
-            name="PORTFOLIO — VOL. 01",
+            name="PORTFOLIO",
             tagline="I build stores that sell.",
             description="Personal brand showcase & engineering portfolio.",
             domain="portfolio-deepesh.lovable.app",
