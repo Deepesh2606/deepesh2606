@@ -100,7 +100,7 @@ def shared_css(extra: str = "") -> str:
     """
     if STATIC:
         static_override = """
-        .anim, .bar, .cell, .row-line, .tile-wrap, .repo-wrap, .l1, .l2, .l3, .l4 {
+        .anim, .bar, .cell, .row-line, .tile-wrap, .proj-wrap, .banner-wrap, .l1, .l2, .l3, .l4 {
           opacity: 1 !important;
           transform: none !important;
           animation: none !important;
@@ -209,39 +209,39 @@ def render_hero(data: dict) -> str:
   <g class="l1">
     <circle cx="38" cy="40" r="4.5" fill="{COBALT}" class="dot-pulse" />
     <text x="52" y="44" fill="{MUTED}" font-family="{FONT_MONO}" font-size="11.5" letter-spacing="1.2">
-      GITHUB.COM/{esc(data['username'].upper())} · OPEN TO COLLABORATE
+      PORTFOLIO — VOL. 01 · WEB DEVELOPER · INDIA · 2026
     </text>
   </g>
 
   <!-- Name with SMIL cobalt shine -->
   <g class="l2">
     <text x="34" y="106" fill="url(#nameShine)" font-family="{FONT_DISPLAY}" font-size="52" font-weight="700" letter-spacing="-1.2">
-      Deepesh Singh
+      Deepesh
     </text>
   </g>
 
   <!-- One-line bio -->
   <g class="l3">
     <text x="36" y="146" fill="{INK}" font-family="{FONT_SANS}" font-size="18.5" font-weight="500">
-      Web Developer crafting crisp interfaces, focus tools &amp; interactive audio apps.
+      I design and develop online stores and web apps that look sharp &amp; grow sales.
     </text>
   </g>
 
   <!-- Duo tag pills -->
   <g class="l4">
-    <rect x="36" y="176" width="128" height="32" rx="8" fill="{COBALT}" />
-    <text x="100" y="196" text-anchor="middle" fill="#FFFFFF" font-family="{FONT_MONO}" font-size="11.5" font-weight="600">
-      WEB DEVELOPER
+    <rect x="36" y="176" width="180" height="32" rx="8" fill="{COBALT}" />
+    <text x="126" y="196" text-anchor="middle" fill="#FFFFFF" font-family="{FONT_MONO}" font-size="11" font-weight="600">
+      E-COMMERCE &amp; WEB APPS
     </text>
 
-    <rect x="174" y="176" width="136" height="32" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
-    <text x="242" y="196" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="11.5">
-      FULL-STACK UI
+    <rect x="224" y="176" width="188" height="32" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
+    <text x="318" y="196" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="11">
+      I BUILD STORES THAT SELL
     </text>
 
-    <rect x="320" y="176" width="170" height="32" rx="8" fill="{SURFACE}" stroke="{BORDER}" />
-    <text x="405" y="196" text-anchor="middle" fill="{MUTED}" font-family="{FONT_MONO}" font-size="11.5">
-      {data['total']:,} COMMITS / YR
+    <rect x="420" y="176" width="168" height="32" rx="8" fill="{COBALT_LIGHT}" stroke="{COBALT}" stroke-opacity="0.3" />
+    <text x="504" y="196" text-anchor="middle" fill="{COBALT}" font-family="{FONT_MONO}" font-size="11" font-weight="600">
+      AVAILABLE FOR WORK
     </text>
   </g>
 
@@ -484,52 +484,137 @@ def render_tile(
 </svg>"""
 
 
-def render_repo_card(
+def render_project_card(
+    number: str,
     name: str,
-    tag: str,
+    tagline: str,
     description: str,
+    domain: str,
+    status_label: str,
     stack: list[str],
+    is_live: bool,
     delay: float,
 ) -> str:
-    w, h = 412, 166
+    w, h = 412, 180
+    pulse_color = "#10B981" if is_live else "#F59E0B"
+    badge_bg = "#DCFCE7" if is_live else "#FEF3C7"
+    badge_text = "#15803D" if is_live else "#B45309"
+    badge_border = "#86EFAC" if is_live else "#FCD34D"
+
     css = f"""
-    @keyframes repoRise {{
-      from {{ opacity: 0; transform: translateY(14px); }}
+    @keyframes cardRise {{
+      from {{ opacity: 0; transform: translateY(16px); }}
       to   {{ opacity: 1; transform: translateY(0); }}
     }}
-    .repo-wrap {{
+    @keyframes pulseLive {{
+      0%, 100% {{ opacity: 1; transform: scale(1); }}
+      50%      {{ opacity: 0.35; transform: scale(1.4); }}
+    }}
+    .proj-wrap {{
       opacity: 0;
-      animation: repoRise 0.55s cubic-bezier(.2,.8,.2,1) {delay:.2f}s forwards;
+      animation: cardRise 0.55s cubic-bezier(.2,.8,.2,1) {delay:.2f}s forwards;
+    }}
+    .live-dot {{
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulseLive 2s ease-in-out infinite;
     }}
     """
 
     pills = []
     px = 22
     for item in stack:
-        pw = len(item) * 7.2 + 18
+        pw = len(item) * 6.8 + 16
         pills.append(
-            f'<rect x="{px}" y="122" width="{pw:.1f}" height="24" rx="6" fill="{SURFACE}" stroke="{BORDER}" />'
-            f'<text x="{px + pw/2:.1f}" y="138" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="10.5">{esc(item)}</text>'
+            f'<rect x="{px}" y="136" width="{pw:.1f}" height="24" rx="6" fill="{SURFACE}" stroke="{BORDER}" />'
+            f'<text x="{px + pw/2:.1f}" y="152" text-anchor="middle" fill="{INK}" font-family="{FONT_MONO}" font-size="10">{esc(item)}</text>'
         )
         px += pw + 8
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">
   {shared_css(css)}
-  <g class="repo-wrap">
+  <g class="proj-wrap">
     <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="14" fill="{BG}" stroke="{BORDER}" />
-    <rect x="22" y="20" width="96" height="22" rx="6" fill="{COBALT_LIGHT}" />
-    <text x="70" y="34" text-anchor="middle" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10" font-weight="700">
-      {esc(tag)}
-    </text>
-    <text x="{w - 24}" y="36" text-anchor="end" fill="{COBALT}" font-family="{FONT_MONO}" font-size="15" font-weight="700">↗</text>
 
-    <text x="22" y="72" fill="{INK}" font-family="{FONT_DISPLAY}" font-size="24" font-weight="700">
-      {esc(name)}
+    <!-- Status Badge -->
+    <rect x="22" y="18" width="{len(status_label)*7.2 + 28:.1f}" height="22" rx="6" fill="{badge_bg}" stroke="{badge_border}" stroke-width="0.8" />
+    <circle cx="32" cy="29" r="3.5" fill="{pulse_color}" class="live-dot" />
+    <text x="41" y="33" fill="{badge_text}" font-family="{FONT_MONO}" font-size="9.5" font-weight="700" letter-spacing="0.5">
+      {esc(status_label)}
     </text>
-    <text x="22" y="96" fill="{MUTED}" font-family="{FONT_SANS}" font-size="13.5">
+
+    <!-- Domain Link Pill -->
+    <text x="{w - 22}" y="33" text-anchor="end" fill="{COBALT}" font-family="{FONT_MONO}" font-size="11" font-weight="600">
+      {esc(domain)} ↗
+    </text>
+
+    <!-- Number + Project Title -->
+    <text x="22" y="70" fill="{INK}" font-family="{FONT_DISPLAY}" font-size="22" font-weight="700">
+      <tspan fill="{MUTED}" font-family="{FONT_MONO}" font-size="14" font-weight="400">{esc(number)} </tspan>{esc(name)}
+    </text>
+
+    <!-- Tagline -->
+    <text x="22" y="92" fill="{COBALT}" font-family="{FONT_SANS}" font-size="12.5" font-weight="600">
+      {esc(tagline)}
+    </text>
+
+    <!-- Short Description -->
+    <text x="22" y="114" fill="{MUTED}" font-family="{FONT_SANS}" font-size="12">
       {esc(description)}
     </text>
+
+    <!-- Tags Row -->
     {''.join(pills)}
+  </g>
+</svg>"""
+
+
+def render_contact_banner() -> str:
+    w, h = 840, 130
+    css = """
+    @keyframes bannerFade {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .banner-wrap {
+      opacity: 0;
+      animation: bannerFade 0.6s cubic-bezier(.2,.8,.2,1) 2.6s forwards;
+    }
+    """
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">
+  {shared_css(css)}
+  <g class="banner-wrap">
+    <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="14" fill="{SURFACE}" stroke="{BORDER}" />
+
+    <!-- Left side: pitch -->
+    <text x="32" y="34" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10.5" font-weight="700" letter-spacing="1">
+      GOT A STORE OR IDEA IN MIND?
+    </text>
+    <text x="32" y="66" fill="{INK}" font-family="{FONT_DISPLAY}" font-size="24" font-weight="700">
+      Let's build yours.
+    </text>
+    <text x="32" y="94" fill="{MUTED}" font-family="{FONT_SANS}" font-size="13">
+      From first sketch to a store taking orders — one person, start to finish.
+    </text>
+
+    <!-- Right side: Contact action badges -->
+    <!-- WhatsApp -->
+    <rect x="520" y="22" width="288" height="28" rx="7" fill="{BG}" stroke="{BORDER}" />
+    <text x="532" y="40" fill="{INK}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600">
+      💬 WhatsApp: +91 88474 43583 ↗
+    </text>
+
+    <!-- Email -->
+    <rect x="520" y="55" width="288" height="28" rx="7" fill="{BG}" stroke="{BORDER}" />
+    <text x="532" y="73" fill="{INK}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600">
+      ✉️ deepeshsingh2606@gmail.com ↗
+    </text>
+
+    <!-- Portfolio -->
+    <rect x="520" y="88" width="288" height="28" rx="7" fill="{COBALT_LIGHT}" stroke="{COBALT}" stroke-opacity="0.3" />
+    <text x="532" y="106" fill="{COBALT}" font-family="{FONT_MONO}" font-size="10.5" font-weight="700">
+      🌐 portfolio-deepesh.lovable.app ↗
+    </text>
   </g>
 </svg>"""
 
@@ -543,46 +628,77 @@ def main() -> None:
         "graph.svg": render_graph(data),
         "activity.svg": render_activity(data),
         "tile-build.svg": render_tile(
-            kicker="01 · BUILD",
-            title="Web Engineering",
-            subtitle="Responsive frontends & full-stack apps",
-            metric=data["public_repos"],
-            suffix="PUBLIC REPOSITORIES",
+            kicker="01 · SHIPPED",
+            title="Projects Shipped",
+            subtitle="E-commerce stores & interactive web apps",
+            metric=4,
+            suffix="TOTAL PROJECTS",
             accent_bg=True,
             delay=1.75,
         ),
         "tile-focus.svg": render_tile(
-            kicker="02 · RHYTHM",
-            title="Daily Consistency",
-            subtitle="Shipping code & iterating every week",
-            metric=data["active_days"],
-            suffix="ACTIVE CODING DAYS",
+            kicker="02 · DEPLOYED",
+            title="Live in Production",
+            subtitle="Taking orders & serving active users",
+            metric=3,
+            suffix="LIVE RIGHT NOW",
             accent_bg=False,
             delay=1.90,
         ),
         "tile-ship.svg": render_tile(
             kicker="03 · VELOCITY",
-            title="Yearly Output",
-            subtitle="Commits, PRs & open-source activity",
+            title="Yearly Cadence",
+            subtitle="Open-source commits & daily engineering",
             metric=data["total"],
             suffix="TOTAL CONTRIBUTIONS",
             accent_bg=False,
             delay=2.05,
         ),
-        "repo-flowstate.svg": render_repo_card(
-            name="FLOWSTATE",
-            tag="FEATURED REPO",
-            description="Distraction-free Pomodoro focus timer & productivity workspace.",
-            stack=["Web App", "Pomodoro", "UI/UX"],
+        "project-posterverse.svg": render_project_card(
+            number="01",
+            name="POSTERVERSE",
+            tagline="Art that holds the room.",
+            description="Print-studio storefront for posters, polaroids & kits.",
+            domain="posterverse.store",
+            status_label="LIVE STORE",
+            stack=["Storefront", "Catalog", "Checkout"],
+            is_live=True,
+            delay=2.20,
+        ),
+        "project-woolencraft.svg": render_project_card(
+            number="02",
+            name="WOOLENCRAFT",
+            tagline="Woven by heart.",
+            description="Artisanal shop for handmade crochet & accessories.",
+            domain="woolencraft.store",
+            status_label="LIVE STORE",
+            stack=["Brand Identity", "Custom Orders", "Payments"],
+            is_live=True,
             delay=2.35,
         ),
-        "repo-constellation.svg": render_repo_card(
-            name="Constellation Lyrics",
-            tag="FEATURED REPO",
-            description="Interactive music player & synchronized visual lyrics experience.",
-            stack=["JavaScript", "Audio Sync", "Frontend"],
+        "project-flowstate.svg": render_project_card(
+            number="03",
+            name="FLOWSTATE",
+            tagline="A study sanctuary for deep work.",
+            description="Pomodoro focus timer, ambient rooms & stats.",
+            domain="useflowstate.vercel.app",
+            status_label="LIVE WEB APP",
+            stack=["Web App", "Timers & Stats", "Live Rooms"],
+            is_live=True,
             delay=2.50,
         ),
+        "project-hapylo.svg": render_project_card(
+            number="04",
+            name="HAPYLO",
+            tagline="Happy home. Better living.",
+            description="Launch-ready store for bamboo-less dhoop sticks.",
+            domain="hapylo.com",
+            status_label="IN PROGRESS",
+            stack=["Storefront", "Pre-Launch", "Gift Kits"],
+            is_live=False,
+            delay=2.65,
+        ),
+        "contact.svg": render_contact_banner(),
     }
 
     for filename, svg in files.items():

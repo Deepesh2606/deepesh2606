@@ -84,10 +84,10 @@
     </text>
 
     <text x="20" y="142" fill="#121316" font-family="'DuoDisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700">
-      Yearly Output
+      Yearly Cadence
     </text>
     <text x="20" y="159" fill="#5C606E" font-family="'DuoSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5">
-      Commits, PRs &amp; open-source activity
+      Open-source commits &amp; daily engineering
     </text>
   </g>
 </svg>
