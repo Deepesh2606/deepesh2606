@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/Deepesh2606">
-    <img src="./cards/hero.svg" width="100%" alt="Deepesh Singh — Web Developer" />
+    <img src="./cards/hero.svg" width="100%" alt="Deepesh  — Web Developer" />
   </a>
 </p>
 
